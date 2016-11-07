@@ -27,10 +27,16 @@ var AppComponent = (function () {
         this.title = "Lista de tarefas";
         this.tasks = TASKS;
     }
+    AppComponent.prototype.onClick = function (task) {
+        console.log(task);
+    };
+    AppComponent.prototype.onKeyPress = function (event) {
+        console.log(event);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n        <h1>{{ title }}</h1>\n        <ul>\n            <li *ngFor=\"let task of tasks\">\n                {{ task.id }} - {{ task.name }}\n            </li>\n        </ul>\n    "
+            template: "\n        <h1>{{ title }}</h1>\n        <ul>\n            <li *ngFor=\"let task of tasks\" (click)=\"onClick(task)\" >{{ task.id }} - {{ task.name }}</li>\n        </ul>\n        <input (keypress)=\"onKeyPress($event)\" />\n        <button type=\"button\" (click)=\"onClick({})\">Clique aqui</button>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
