@@ -9,17 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+/**
+ * Task
+ */
+var Task = (function () {
+    function Task() {
+    }
+    return Task;
+}());
+var TASKS = [
+    { id: 1, name: 'Trabalho' },
+    { id: 2, name: 'Lavar prato' },
+    { id: 3, name: 'Tirar poeira' }
+];
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = {
-            name: 'Hello World',
-            description: 'Minha descricao'
-        };
+        this.title = "Lista de tarefas";
+        this.tasks = TASKS;
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{ title.name }}</h1>\n    <input [value]=\"title.name\"/>\n    <input [(ngModel)]=\"title.description\"/>\n    {{ title.name }}\n    {{ title.description }}\n    "
+            template: "\n        <h1>{{ title }}</h1>\n        <ul>\n            <li *ngFor=\"let task of tasks\">\n                {{ task.id }} - {{ task.name }}\n            </li>\n        </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
